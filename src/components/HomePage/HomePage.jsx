@@ -1,7 +1,7 @@
 import React from "react";
-
+import "./Homepage.css";
 const HomePage = () => {
-    return(<>Hello Gaya</>);
+    return(<div className="home">Hello Gaya</div>);
 }
 
 
