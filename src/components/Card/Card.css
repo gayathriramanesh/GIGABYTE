@@ -2,27 +2,24 @@
     height: 500px; 
     width: 50vw;
   }
-  
   .card-container {
     display: flex;
     flex-wrap: wrap; 
     gap: 40px; 
     justify-content: space-evenly;
   }
-  
   .single-card {
     width: 45%; 
     height: 40%; 
     box-sizing: border-box; 
-  
+  }
   .card-button {
     border: 1px solid #61ce70 !important;
     color: #61ce70 !important;
   }
-  
   .card-button-second {
     border: 1px solid #61ce70 !important;
     background-color: #61ce70 !important;
     color: white !important;
   }
-  
+
