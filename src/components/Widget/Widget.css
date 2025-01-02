@@ -1,0 +1,37 @@
+.widget-container{
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    height:90px;
+    border-radius: 8px;
+    margin:20px;
+    padding:4px;
+    width:100%;
+}
+.widget-child{
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    width: 600px;
+    background-color: #61CE70;
+    border: 2px solid #c6e6b5; 
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+}
+.widget-child-animate{
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    width: 600px;
+    background-color: #61CE70;
+    color: white;
+    border: 2px solid white;
+    animation: blink 1.5s infinite;
+    text-align: center;
+}
+@keyframes blink {
+	0% {opacity: 0}
+	50% {opacity: 0}
+    75% {opacity: 1}
+}

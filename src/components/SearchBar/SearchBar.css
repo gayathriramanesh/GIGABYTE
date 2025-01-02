@@ -1,0 +1,39 @@
+.searchbar{
+    display: flex;
+    border: 1px solid black;
+    width: 500px;
+    border-color: green;
+    border-radius: 4px;
+    justify-content: space-between;
+    padding: 5px;
+    margin:10px;
+}
+.searchbox{
+
+  border:none;
+  outline:none;
+}
+.search-button{
+  background-color: green;
+  border:none;
+  outline:none;
+  display:grid;
+  place-items: center;
+  border-radius: 2px;
+  width:50px;
+}
+.button{
+    background-color: #ddd;
+  
+  color: green;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  
+}
+.searchbar-wrapper{
+  display: flex;
+  justify-content: flex-end;
+}
