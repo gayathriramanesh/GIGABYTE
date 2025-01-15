@@ -4,6 +4,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import IconList from "../IconList";
 import { Link } from "react-router-dom";
+import HomeIcon from '@mui/icons-material/Home';
+import BusinessIcon from '@mui/icons-material/Business';
 import "./NavBar.css";
 import { useNavigate } from "react-router-dom";
 const NavBar = () =>
@@ -19,13 +21,31 @@ const NavBar = () =>
         { "icon":<ShoppingCartIcon/>,"value":"View cart"}
 
     ]
+    const navbar_values_one=[
+        { "icon":<HomeIcon/>,"value":"HOME",},
+        { "icon":<BusinessIcon/>,"value":"OFFICE"},
+    ]
     return(
-    <div className="navbar">
-       { navbar_values.map(item=>(
-            <IconList Icon={item.icon} Value={item.value} OnClick={item.onClick?item.onClick:()=>{}}/>
-        )
-    )}
-    </div>
+        <div className="navbar-wrapper">
+             <div className="button-wrapper-main">
+             {
+                    navbar_values_one.map((value,index)=>(
+                        <div className="home-button" key={index}>
+                          <span>{value.icon}</span>
+                          <span>{value.value}</span>
+                        </div>
+                    ))
+                } 
+             </div>
+            <div className="navbar">
+               { navbar_values.map(item=>(
+                 <IconList Icon={item.icon} Value={item.value} OnClick={item.onClick?item.onClick:()=>{}}/>
+               )
+             )}
+            </div>
+        </div>
+   
+    
 );
    
 }

@@ -32,7 +32,6 @@ const CardComponent = () => {
 
   return (
     <div className="card-wrapper">
-      <div className="card-container">
         {images.map((value, index) => (
           <div className="single-card" key={index}>
             <Card>
@@ -45,13 +44,14 @@ const CardComponent = () => {
                 />
               </CardActionArea>
               <CardActions>
+                <div className="card-button-wrapper">
                 <Button className="card-button">View Details</Button>
                 <Button className="card-button-second">Buy Now</Button>
+                </div>
               </CardActions>
             </Card>
           </div>
         ))}
-      </div>
     </div>
   );
 };

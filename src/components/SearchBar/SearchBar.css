@@ -9,7 +9,6 @@
     margin:10px;
 }
 .searchbox{
-
   border:none;
   outline:none;
 }
@@ -23,8 +22,6 @@
   width:50px;
 }
 .button{
-    background-color: #ddd;
-  
   color: green;
   padding: 10px 20px;
   text-align: center;
@@ -36,4 +33,6 @@
 .searchbar-wrapper{
   display: flex;
   justify-content: flex-end;
+  z-index: 1;
+  
 }

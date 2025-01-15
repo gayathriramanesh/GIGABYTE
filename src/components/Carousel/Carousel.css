@@ -1,8 +1,17 @@
 .carousel-container{
-    margin: auto;
-    width:auto;
+   height: fit-content;
    
 }
-.carousel img{
-  height: 520px;
+.img-carousel{
+  height: 400px;
+  img {
+    object-fit: contain;
+    height: 400px;
+  }
+}
+.carousel-container .carousel-root .carousel{
+  height: 400px;
+}
+.carousel-container .carousel-root{
+  height: 400px !important;
 }

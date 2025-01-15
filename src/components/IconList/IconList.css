@@ -1,8 +1,6 @@
 .iconlist-wrapper{
     display:flex;
-    gap:5px;
-    justify-content: center;
 }
 .icon-item{
-    color: green;
+   color:#81B430;
 }

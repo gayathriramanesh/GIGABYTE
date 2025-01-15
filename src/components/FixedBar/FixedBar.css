@@ -1,0 +1,31 @@
+.fixedbar-wrapper-main{
+    display: flex;
+    gap: 320px;
+    background-color: #fff;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    z-index: 7;
+
+}
+.fixedbar-wrapper{
+    display: flex;
+    width: 100vw;
+   
+}
+.moving-text{
+    white-space: nowrap;
+}
+.moving-text-wrapper{
+    position: relative;
+    animation: move-words 10s linear infinite;
+    overflow: hidden;
+}
+@keyframes move-words {
+    0% {
+      left: 500px;
+    }
+    100% {
+      left: 100px;
+    }
+  }

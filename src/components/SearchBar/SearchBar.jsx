@@ -9,9 +9,6 @@ const SearchBar = () =>
         <button className="search-button"><SearchIcon /></button>
        </div>
    </div>
-    
-
-
 );
 }
 

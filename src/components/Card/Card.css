@@ -1,25 +1,25 @@
 .card-wrapper {
-    height: 500px; 
-    width: 50vw;
+  height: 500px; 
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 40px; 
+  justify-content: space-evenly;
   }
-  .card-container {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 40px; 
-    justify-content: space-evenly;
-  }
-  .single-card {
-    width: 45%; 
+.single-card {
+    width: 250px; 
     height: 40%; 
-    box-sizing: border-box; 
   }
-  .card-button {
-    border: 1px solid #61ce70 !important;
+.card-button {
+    border: 1px solid #81B430 !important;
     color: #61ce70 !important;
   }
-  .card-button-second {
-    border: 1px solid #61ce70 !important;
-    background-color: #61ce70 !important;
+.card-button-second {
+    border: 1px solid #81B430 !important;
+    background-color: #81B430 !important;
     color: white !important;
   }
+.card-button-wrapper{
+     display: flex;
+     gap:20px;
+    }
 

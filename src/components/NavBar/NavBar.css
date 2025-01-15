@@ -1,6 +1,29 @@
 .navbar{
     display :flex;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     gap:10px;
     margin-top:20px;
+}
+.navbar-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.home-button{
+    color: white;
+    border: 1px solid;
+    padding: 3px;
+    margin:2px;
+    background-color: #81B430;
+    height: 40px;
+    width:100px;
+    text-align: center;
+    font-size: 15px;
+}
+.home-button-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.button-wrapper-main{
+    display:flex;
+    gap:10px;
 }

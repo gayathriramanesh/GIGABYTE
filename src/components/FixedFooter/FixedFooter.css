@@ -1,0 +1,19 @@
+.footer-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+}
+.footer-text-wrapper{
+    display:flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.footer-img-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    img{
+        height: 50px;
+        width: 50px;
+    }
+}

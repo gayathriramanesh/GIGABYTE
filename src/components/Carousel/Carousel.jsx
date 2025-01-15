@@ -11,7 +11,7 @@ const ImageCarousel = () => {
             "width": 5000,
             "height": 3333,
             "url": "https://unsplash.com/photos/yC-Yzbqy7PY",
-            "download_url": "https://picsum.photos/id/0/5000/3333"
+            "download_url": "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           },
           {
             "id": "1",
@@ -33,9 +33,9 @@ const ImageCarousel = () => {
   
     return (
     <div className="carousel-container">
-       <Carousel infiniteLoop interval={60} showThumbs={false} >
+       <Carousel infiniteLoop interval={60} showThumbs={false} dynamicHeight={true} >
         {images.map((src, index) => (
-          <div key={index}>
+          <div key={index} className="img-carousel">
             <img src={src.download_url} alt={src.author}/>
           </div>
         ))}
