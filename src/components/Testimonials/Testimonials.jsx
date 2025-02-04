@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import "./Testimonials.css";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -7,9 +7,11 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import StarIcon from '@mui/icons-material/Star';
 import { Carousel } from 'react-responsive-carousel';
+import AddIcon from '@mui/icons-material/Add';
+import {AddCard} from "../AddCard"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 const Testimonials = () => {
-   const testimonials = [
+   const [testimonials,setTestimonials] = useState([
     {
       "id":1,
       "name": "abc",
@@ -17,60 +19,40 @@ const Testimonials = () => {
       "date" : "01/01/2024",
       "img": "https://picsum.photos/id/26/4209/2769",
       "feedback" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis ante eu nisi tempor pretium. Morbi finibus aliquet risus ut rhoncus."
-    },
+    }
+   ])
+   const [addcard,setAddCard] = useState(false)
+   //loads from the localstorage whenever page re-renders or the components mount
+   useEffect( () =>{
+    const testi = localStorage.getItem("testimonials");
+    if(testi)
     {
-        "id":2,
-        "name": "def",
-        "rating": 4,
-        "date" : "02/01/2024",
-        "img": "https://picsum.photos/id/29/4000/2670",
-        "feedback" : "Donec quis ex sit amet quam posuere lacinia et at nulla."
-      },
-      {
-        "id":3,
-        "name": "ghi",
-        "rating": 3,
-        "date" : "03/01/2024",
-        "img": "https://picsum.photos/id/28/4928/3264",
-        "feedback" : "Curabitur justo ex, dapibus sit amet sapien ac, lacinia dapibus eros. Duis odio massa, eleifend ut sem tincidunt, ullas"
-      },
-      {
-        "id":4,
-        "name": "jkl",
-        "rating": 2,
-        "date" : "04/01/2024",
-        "img": "https://picsum.photos/id/27/3264/1836",
-        "feedback" : "Pellentesque diam augue, blandit nec mollis non, vulputate et neque. Sed ornare tincidunt felis, et tempor lorem efc."
-      },
-      {
-        "id":5,
-        "name": "mno",
-        "rating": 5,
-        "date" : "05/01/2024",
-        "img": "https://picsum.photos/id/26/4209/2769",
-        "feedback" : "Vestibulum vel pharetra libero, sit amet euismod urna. Proin in elit lobortis, aliquam ex eu, sollicitudi leo."
-      },
-      {
-        "id":6,
-        "name": "abc",
-        "rating": 5,
-        "date" : "01/01/2024",
-        "img": "https://picsum.photos/id/27/3264/1836",
-        "feedback" : "Suspendisse id semper orci. Donec posuere ac sapien vel hendrerit. Curabitur at nisi ex. Mauris luctus, duift."
-      },
-   ]
+      setTestimonials(JSON.parse(testi));
+    }
+   },[]);
+
+  // saves this in the localstorage whenever the state changes
+   useEffect (() =>{
+     console.log(testimonials);
+     localStorage.setItem("testimonials", JSON.stringify(testimonials));
+   },[testimonials]);
    return(
  <div className="carousel-wrapper-testi">
-    <h2 style={{textAlign:"center"}}>Customer Testimonials</h2>
+   <div style={{ display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
+  <h2 style={{ flex: 1, textAlign: "center" }}>Customer Testimonials</h2>
+  <AddIcon style={{ position: "absolute", right: 0 }} onClick={ () => setAddCard(!addcard)} />
+</div>
+{addcard && <div className="addcard-wrapper">
+       { <AddCard testimonials={testimonials} setTestimonials={setTestimonials}/>} 
+   </div>}
+
    <Carousel showThumbs={true} 
         showStatus={true} 
-        infiniteLoop={true} 
-        centerMode={true} // Center the cards
-         centerSlidePercentage={20} // Show 3 cards (33% width each)
+        infiniteLoop={true}  
          emulateTouch={true} >
-    {testimonials.map((value, index) => (
-    <div className="card-wrapper-testi">
-     <div className="card-container-testi">
+     
+    { 
+    testimonials.map((value, index) => (
         <div className="single-card-testi" key={index}>
             <Card variant="outlined">
               <CardContent>
@@ -104,8 +86,6 @@ const Testimonials = () => {
               </CardContent>
           </Card> 
         </div>
-    </div>
-   </div>
   
 ))}
  </Carousel>

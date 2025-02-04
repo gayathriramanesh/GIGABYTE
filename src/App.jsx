@@ -8,10 +8,13 @@ import { NavBar } from "./components/NavBar/NavBar"
 import MainPage from "./components/MainPage/MainPage"
 import Testimonials from "./components/Testimonials/Testimonials"
 import { FixedFooter } from "./components/FixedFooter"
+import { themeContext } from "./components/Contexts/contexts"
+import { useState } from "react"
 function App() {
-
+  const [theme,setTheme] = useState('light')
   return (
-    <div className='wrapper-container'>
+    <div className='wrapper-container' style={{backgroundColor: theme==='light'?"#fff" : "#333", color: theme === "light" ? "#000" : "#fff" }}>
+      <themeContext.Provider value={{theme,setTheme}}>
       <NavBar/>
       <Routes>
        <Route path="/abc" element={ <HomePage/> } />
@@ -27,6 +30,7 @@ function App() {
       <Testimonials/>
       <hr></hr>
       <FixedFooter/>
+      </themeContext.Provider>
     </div>
   )
 }
