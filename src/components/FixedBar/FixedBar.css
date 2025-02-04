@@ -1,31 +1,40 @@
 .fixedbar-wrapper-main{
     display: flex;
-    gap: 320px;
     background-color: #fff;
     width: 100vw;
     position: sticky;
     top: 0;
-    z-index: 7;
-
+    z-index: 1;
 }
 .fixedbar-wrapper{
     display: flex;
     width: 100vw;
-   
 }
-.moving-text{
-    white-space: nowrap;
+
+.sliding-text-container {
+  width: 100%; 
+  overflow: hidden; 
+  white-space: nowrap; 
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.moving-text-wrapper{
-    position: relative;
-    animation: move-words 10s linear infinite;
-    overflow: hidden;
+
+/* Sliding text styling */
+.sliding-text {
+  animation: slide 15s linear infinite; /* Animation with infinite loop */
+  font-size: 20px; /* Adjust font size as needed */
+  color: #333; /* Text color */
 }
-@keyframes move-words {
-    0% {
-      left: 500px;
-    }
-    100% {
-      left: 100px;
-    }
+
+/* Keyframes for sliding effect */
+@keyframes slide {
+  from {
+    transform: translateX(100%); /* Start off-screen to the right */
   }
+  to {
+    transform: translateX(-100%); /* Slide off-screen to the left */
+  }
+}

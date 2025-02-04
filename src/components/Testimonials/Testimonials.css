@@ -43,3 +43,8 @@
     height: 300px;
 
 }
+.addcard-wrapper{
+   z-index: 1;
+   display: flex;
+   justify-content: center;
+}
