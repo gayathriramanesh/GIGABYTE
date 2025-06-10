@@ -18,12 +18,15 @@ from enquiry import router as enquiry
 from auth import router as google_auth_router 
 from starlette.middleware.sessions import SessionMiddleware
 import os
-
-app = FastAPI()
-
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from dotenv import load_dotenv
 load_dotenv(dotenv_path="secrets.env")
 
+
+app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="static", html=True), name="static")
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
@@ -95,7 +98,7 @@ async def register(user: UserCreate, db: Session = Depends(get_db)):
         
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to GIGABYTE"}
+    return FileResponse("static/index.html")
         
 @app.post("/login",response_model=TokenResponse)
 async def login(form_data:Annotated[OAuth2PasswordRequestForm,Depends()],db: Session = Depends(get_db)):
