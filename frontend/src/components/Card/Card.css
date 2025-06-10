@@ -1,0 +1,26 @@
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.single-card {
+  margin: 10px;
+  width: 250px;
+}
+.card-button {
+    border: 1px solid #81B430 !important;
+    color: #61ce70 !important;
+  }
+.card-button-second {
+    border: 1px solid #81B430 !important;
+    background-color: #81B430 !important;
+    color: white !important;
+  }
+.card-button-wrapper{
+     display: flex;
+     gap:20px;
+    }
+
+
