@@ -1,0 +1,14 @@
+# Common ignores for all projects
+.DS_Store
+*.log
+.env
+.env.*
+
+# Ignore local settings
+*.local
+*.sqlite3
+
+__pycache__/
+venv/
+lib/
+*.pyc
