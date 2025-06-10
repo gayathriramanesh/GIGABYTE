@@ -1,8 +1,12 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
+import os
+from dotenv import load_dotenv
 
-URL_DATABASE = 'postgresql://gayathri:presidentofindia1^@localhost:5432/login'
+load_dotenv(dotenv_path="secrets.env")
+
+URL_DATABASE = os.getenv("DATABASE_URL")
 
 engine = create_engine(URL_DATABASE)
 
