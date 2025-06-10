@@ -93,6 +93,10 @@ async def register(user: UserCreate, db: Session = Depends(get_db)):
             print(f"Database error: {e}")  
             raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
         
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to GIGABYTE"}
+        
 @app.post("/login",response_model=TokenResponse)
 async def login(form_data:Annotated[OAuth2PasswordRequestForm,Depends()],db: Session = Depends(get_db)):
         user = auth.authenticate_user(form_data.username, form_data.password,db)
