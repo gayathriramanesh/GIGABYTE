@@ -36,7 +36,7 @@ const Register = () => {
 
  const handleSubmit = (e) => {
   e.preventDefault();
-  axios.post('http://127.0.0.1:9000/register', formValues, {
+  axios.post('http://127.0.0.1:8000/register', formValues, {
    headers: {
     'Content-Type': 'application/json'
    }
