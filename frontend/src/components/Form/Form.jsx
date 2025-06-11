@@ -20,7 +20,7 @@ const FormComponent = () => {
   const handleEnquiry = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post("http://127.0.0.1:8000//enquiry/", formData, {
+      const res = await axios.post("http://127.0.0.1:8000/enquiry/", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
