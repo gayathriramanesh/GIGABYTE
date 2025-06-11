@@ -26,7 +26,7 @@ load_dotenv(dotenv_path="secrets.env")
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static", html=True), name="static")
+app.mount("/assets", StaticFiles(directory="static/dist/assets", html=True), name="assets")
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 

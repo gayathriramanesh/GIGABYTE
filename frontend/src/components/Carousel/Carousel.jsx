@@ -9,7 +9,7 @@ const ImageCarousel = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch("http://localhost:9000/products/product",{
+                const response = await fetch("https://gigabyte.onrender.com//products/product",{
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },

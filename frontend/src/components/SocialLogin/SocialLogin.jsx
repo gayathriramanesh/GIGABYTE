@@ -9,7 +9,7 @@ import {
 
 const SocialLogin = () => {
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:9000/auth/google/login';
+    window.location.href = 'https://gigabyte.onrender.com//auth/google/login';
   };
 
   return (

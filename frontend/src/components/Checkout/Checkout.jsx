@@ -37,7 +37,7 @@ const Checkout = () => {
     {
       try {
       const response = await axios.post(
-        "http://localhost:9000/order/checkout",
+        "https://gigabyte.onrender.com//order/checkout",
         {
            phone: formData.phone,
         address: formData.address,
@@ -64,7 +64,7 @@ const Checkout = () => {
 
  const fetchCart = async () => {
     try {
-      const cartRes = await axios.get("http://localhost:9000/cart/view", {
+      const cartRes = await axios.get("https://gigabyte.onrender.com//cart/view", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -74,7 +74,7 @@ const Checkout = () => {
       const productDetails = await Promise.all(
         cart.cart_items.map((item) =>
           axios
-            .get(`http://localhost:9000/products/filter?pid=${item.product_id}`, {
+            .get(`https://gigabyte.onrender.com//products/filter?pid=${item.product_id}`, {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
               },

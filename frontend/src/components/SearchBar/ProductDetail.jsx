@@ -10,7 +10,7 @@ const ProductDetails = () => {
   
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`http://localhost:9000/products/${pid}`, {
+      const res = await axios.get(`https://gigabyte.onrender.com//products/${pid}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

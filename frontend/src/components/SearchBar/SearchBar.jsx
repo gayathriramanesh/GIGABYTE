@@ -11,7 +11,7 @@ const SearchBar = () => {
 
   const handleClick = async () => {
     try {
-      const response = await axios.get("http://localhost:9000/products/filter", {
+      const response = await axios.get("https://gigabyte.onrender.com//products/filter", {
         params: { name: searchText },
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

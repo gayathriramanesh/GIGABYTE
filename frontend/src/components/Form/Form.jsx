@@ -20,7 +20,7 @@ const FormComponent = () => {
   const handleEnquiry = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post("http://localhost:9000/enquiry/", formData, {
+      const res = await axios.post("https://gigabyte.onrender.com//enquiry/", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -17,7 +17,7 @@ const RecentlyViewed = () => {
 
   const fetchRecentlyViewed = async () => {
     try {
-      const res = await axios.get("http://localhost:9000/recently_viewed/", {
+      const res = await axios.get("https://gigabyte.onrender.com//recently_viewed/", {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
       }});
@@ -26,7 +26,7 @@ const RecentlyViewed = () => {
       setRecentItems(items);
 
       const productDetailPromises = items.map(item =>
-        axios.get(`http://localhost:9000/products/filter?pid=${item.pid}`, {
+        axios.get(`https://gigabyte.onrender.com//products/filter?pid=${item.pid}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -43,7 +43,7 @@ const RecentlyViewed = () => {
   const handleAddToCart = async (productId) => {
     try {
           const res = await axios.post(
-      "http://localhost:9000/cart/add",
+      "https://gigabyte.onrender.com//cart/add",
       {
         product_id: productId,
         quantity: 1,

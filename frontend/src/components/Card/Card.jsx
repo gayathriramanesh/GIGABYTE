@@ -16,7 +16,7 @@ const CardComponent = () => {
   const handleViewPDP = async(productId) => {
     try{
       const res = await axios.post(
-  "http://localhost:9000/recently_viewed/add_recently_viewed_product",
+  "https://gigabyte.onrender.com//recently_viewed/add_recently_viewed_product",
   {
     product_id: productId,
   },
@@ -37,7 +37,7 @@ const CardComponent = () => {
   };
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(`http://localhost:9000/products?skip=${page * limit}&limit=${limit}`, {
+      const res = await axios.get(`https://gigabyte.onrender.com//products?skip=${page * limit}&limit=${limit}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -51,7 +51,7 @@ const CardComponent = () => {
   const handleAddToCart = async (productId) => {
     try {
       const res = await axios.post(
-  "http://localhost:9000/cart/add",
+  "https://gigabyte.onrender.com//cart/add",
   {
     product_id: productId,
     quantity: 1,
