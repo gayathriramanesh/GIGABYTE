@@ -98,7 +98,7 @@ async def register(user: UserCreate, db: Session = Depends(get_db)):
         
 @app.get("/")
 def read_root():
-    return FileResponse("static/index.html")
+    return FileResponse("static/dist/index.html")
         
 @app.post("/login",response_model=TokenResponse)
 async def login(form_data:Annotated[OAuth2PasswordRequestForm,Depends()],db: Session = Depends(get_db)):
