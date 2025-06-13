@@ -9,7 +9,7 @@ import {
 
 const SocialLogin = () => {
   const handleGoogleLogin = () => {
-    window.location.href = 'http://127.0.0.1:8000/auth/google/login';
+    window.location.href = 'http://0.0.0.0:8000auth/google/login';
   };
 
   return (

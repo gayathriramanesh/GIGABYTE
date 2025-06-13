@@ -16,7 +16,7 @@ const CardComponent = () => {
   const handleViewPDP = async(productId) => {
     try{
       const res = await axios.post(
-  "http://127.0.0.1:8000/recently_viewed/add_recently_viewed_product",
+  "http://0.0.0.0:8000recently_viewed/add_recently_viewed_product",
   {
     product_id: productId,
   },
@@ -37,7 +37,7 @@ const CardComponent = () => {
   };
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(`http://127.0.0.1:8000/products?skip=${page * limit}&limit=${limit}`, {
+      const res = await axios.get(`http://0.0.0.0:8000products?skip=${page * limit}&limit=${limit}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -51,7 +51,7 @@ const CardComponent = () => {
   const handleAddToCart = async (productId) => {
     try {
       const res = await axios.post(
-  "http://127.0.0.1:8000/cart/add",
+  "http://0.0.0.0:8000cart/add",
   {
     product_id: productId,
     quantity: 1,

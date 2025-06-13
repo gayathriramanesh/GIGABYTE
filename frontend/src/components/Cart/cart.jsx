@@ -26,7 +26,7 @@ const CartComponent = () => {
 
   const fetchCart = async () => {
     try {
-      const cartRes = await axios.get("http://127.0.0.1:8000/cart/view", {
+      const cartRes = await axios.get("http://0.0.0.0:8000cart/view", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -36,7 +36,7 @@ const CartComponent = () => {
       const productDetails = await Promise.all(
         cart.cart_items.map((item) =>
           axios
-            .get(`http://127.0.0.1:8000/products/filter?pid=${item.product_id}`, {
+            .get(`http://0.0.0.0:8000products/filter?pid=${item.product_id}`, {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
               },
@@ -71,7 +71,7 @@ const CartComponent = () => {
 
   const handleRemove = async (productId) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/cart/delete_pdt_from_cart`, {
+      await axios.delete(`http://0.0.0.0:8000cart/delete_pdt_from_cart`, {
         params: { product_id: productId },
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -87,7 +87,7 @@ const CartComponent = () => {
     if (newQuantity < 1) return;
     try {
       await axios.post(
-        `http://127.0.0.1:8000/cart/update`,
+        `http://0.0.0.0:8000cart/update`,
         null,
         {
           params: { product_id: productId, quantity: newQuantity },

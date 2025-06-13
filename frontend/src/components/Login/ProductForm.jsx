@@ -58,7 +58,7 @@ const ProductForm = () => {
     formData.append('imageUrl', imageUrl);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/products/add_product', {
+      const response = await fetch('http://0.0.0.0:8000products/add_product', {
         method: 'POST',
         body: formData,
         headers: {

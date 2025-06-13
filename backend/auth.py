@@ -114,7 +114,7 @@ async def login_via_google(request: Request):
 @router.get("/auth/google/callback")
 async def google_callback(request: Request, db: Session = Depends(get_db)):
     token = await oauth.google.authorize_access_token(request)
-    user_info = await oauth.google.userinfo(token=token)  # ✅ this works even if no id_token
+    user_info = await oauth.google.userinfo(token=token)  
 
     if not user_info:
         raise HTTPException(status_code=400, detail="Google login failed")
@@ -125,7 +125,7 @@ async def google_callback(request: Request, db: Session = Depends(get_db)):
         user = models.Register(
             name=user_info.get("name", ""),
             email=user_info["email"],
-            password="",  # leave blank if not using password auth
+            password="",  
             password_salt="",
             role="user"
         )
@@ -139,5 +139,5 @@ async def google_callback(request: Request, db: Session = Depends(get_db)):
         expires_delta=timedelta(days=1)
     )
     return RedirectResponse(
-        url=f"http://127.0.0.1:8000//home?token={jwt_token}&role={user.role}"
+        url=f"http://0.0.0.0:8000home?token={jwt_token}&role={user.role}"
     )

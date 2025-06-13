@@ -20,7 +20,7 @@ const FormComponent = () => {
   const handleEnquiry = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post("http://127.0.0.1:8000/enquiry/", formData, {
+      const res = await axios.post("http://0.0.0.0:8000enquiry/", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +30,7 @@ const FormComponent = () => {
       console.error(err);
       const msg =
         err.response?.data?.detail || "Something went wrong while submitting the enquiry.";
-      alert(msg);
+      alert(JSON.stringify(msg));
     }
   };
 

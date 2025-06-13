@@ -17,7 +17,7 @@ const RecentlyViewed = () => {
 
   const fetchRecentlyViewed = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/recently_viewed/", {
+      const res = await axios.get("http://0.0.0.0:8000recently_viewed/", {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
       }});
@@ -26,7 +26,7 @@ const RecentlyViewed = () => {
       setRecentItems(items);
 
       const productDetailPromises = items.map(item =>
-        axios.get(`http://127.0.0.1:8000/products/filter?pid=${item.pid}`, {
+        axios.get(`http://0.0.0.0:8000products/filter?pid=${item.pid}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -43,7 +43,7 @@ const RecentlyViewed = () => {
   const handleAddToCart = async (productId) => {
     try {
           const res = await axios.post(
-      "http://127.0.0.1:8000/cart/add",
+      "http://0.0.0.0:8000cart/add",
       {
         product_id: productId,
         quantity: 1,
