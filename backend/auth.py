@@ -139,5 +139,5 @@ async def google_callback(request: Request, db: Session = Depends(get_db)):
         expires_delta=timedelta(days=1)
     )
     return RedirectResponse(
-        url=f"http://0.0.0.0:8000home?token={jwt_token}&role={user.role}"
+        url=f"http://0.0.0.0:8000/home?token={jwt_token}&role={user.role}"
     )

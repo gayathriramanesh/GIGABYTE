@@ -9,7 +9,7 @@ const ImageCarousel = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch("http://0.0.0.0:8000products/product",{
+                const response = await fetch("http://0.0.0.0:8000/products/product",{
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },

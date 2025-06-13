@@ -11,7 +11,7 @@ const SearchBar = () => {
 
   const handleClick = async () => {
     try {
-      const response = await axios.get("http://0.0.0.0:8000products/filter", {
+      const response = await axios.get("http://0.0.0.0:8000/products/filter", {
         params: { name: searchText },
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
