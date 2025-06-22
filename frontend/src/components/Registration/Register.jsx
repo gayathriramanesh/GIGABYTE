@@ -15,6 +15,7 @@ import { useState } from 'react';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Register = () => {
  const [formValues, setFormValues] = useState({
@@ -36,7 +37,7 @@ const Register = () => {
 
  const handleSubmit = (e) => {
   e.preventDefault();
-  axios.post('http://0.0.0.0:8000/register', formValues, {
+  axios.post(`${API_URL}/register`, formValues, {
    headers: {
     'Content-Type': 'application/json'
    }

@@ -13,6 +13,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import "../Card/Card.css";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CartComponent = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const CartComponent = () => {
 
   const fetchCart = async () => {
     try {
-      const cartRes = await axios.get("http://0.0.0.0:8000/cart/view", {
+      const cartRes = await axios.get(`${API_URL}/cart/view`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -36,7 +37,7 @@ const CartComponent = () => {
       const productDetails = await Promise.all(
         cart.cart_items.map((item) =>
           axios
-            .get(`http://0.0.0.0:8000/products/filter?pid=${item.product_id}`, {
+            .get(`${API_URL}/products/filter?pid=${item.product_id}`, {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
               },
@@ -71,7 +72,7 @@ const CartComponent = () => {
 
   const handleRemove = async (productId) => {
     try {
-      await axios.delete(`http://0.0.0.0:8000/cart/delete_pdt_from_cart`, {
+      await axios.delete(`${API_URL}/cart/delete_pdt_from_cart`, {
         params: { product_id: productId },
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -87,7 +88,7 @@ const CartComponent = () => {
     if (newQuantity < 1) return;
     try {
       await axios.post(
-        `http://0.0.0.0:8000/cart/update`,
+        `${API_URL}/cart/update`,
         null,
         {
           params: { product_id: productId, quantity: newQuantity },

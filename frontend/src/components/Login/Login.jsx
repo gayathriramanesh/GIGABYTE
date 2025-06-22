@@ -11,6 +11,8 @@ import { useState } from 'react';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+const API_URL = import.meta.env.VITE_API_URL;
+console.log("Backend API:", import.meta.env.VITE_API_URL);
 
 
 const Login = () => {
@@ -36,7 +38,7 @@ const Login = () => {
     formData.append('password', formValues.password);
 
     try {
-      const response = await axios.post('http://0.0.0.0:8000/login', formData, {
+      const response = await axios.post(`${API_URL}/login`, formData, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }

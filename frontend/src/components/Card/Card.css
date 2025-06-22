@@ -22,5 +22,8 @@
      display: flex;
      gap:20px;
     }
-
+.product-container{
+  display: flex;
+  flex-direction: column;
+}
 

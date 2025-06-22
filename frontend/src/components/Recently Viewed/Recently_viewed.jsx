@@ -3,7 +3,7 @@ import axios from "axios";
 import { Card, CardMedia, CardContent, Typography, Button } from "@mui/material";
 import { useLocation,useNavigate } from "react-router-dom";
 import "../Card/Card.css"; 
-
+const API_URL = import.meta.env.VITE_API_URL;
 
 
 
@@ -17,7 +17,7 @@ const RecentlyViewed = () => {
 
   const fetchRecentlyViewed = async () => {
     try {
-      const res = await axios.get("http://0.0.0.0:8000/recently_viewed/", {
+      const res = await axios.get(`${API_URL}/recently_viewed/`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
       }});
@@ -26,7 +26,7 @@ const RecentlyViewed = () => {
       setRecentItems(items);
 
       const productDetailPromises = items.map(item =>
-        axios.get(`http://0.0.0.0:8000/products/filter?pid=${item.pid}`, {
+        axios.get(`${API_URL}/products/filter?pid=${item.pid}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -43,7 +43,7 @@ const RecentlyViewed = () => {
   const handleAddToCart = async (productId) => {
     try {
           const res = await axios.post(
-      "http://0.0.0.0:8000/cart/add",
+      `${API_URL}/cart/add`,
       {
         product_id: productId,
         quantity: 1,

@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Checkout = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -37,7 +38,7 @@ const Checkout = () => {
     {
       try {
       const response = await axios.post(
-        "http://0.0.0.0:8000/order/checkout",
+        `${API_URL}/order/checkout`,
         {
            phone: formData.phone,
         address: formData.address,
@@ -64,7 +65,7 @@ const Checkout = () => {
 
  const fetchCart = async () => {
     try {
-      const cartRes = await axios.get("http://0.0.0.0:8000/cart/view", {
+      const cartRes = await axios.get(`${API_URL}/cart/view`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -74,7 +75,7 @@ const Checkout = () => {
       const productDetails = await Promise.all(
         cart.cart_items.map((item) =>
           axios
-            .get(`http://0.0.0.0:8000/products/filter?pid=${item.product_id}`, {
+            .get(`${API_URL}/products/filter?pid=${item.product_id}`, {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
               },

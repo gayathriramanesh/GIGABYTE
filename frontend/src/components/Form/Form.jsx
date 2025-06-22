@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "./Form.css";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const FormComponent = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ const FormComponent = () => {
   const handleEnquiry = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post("http://0.0.0.0:8000/enquiry/", formData, {
+      const res = await axios.post(`${API_URL}/enquiry/`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

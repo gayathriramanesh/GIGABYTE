@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./Carousel.css"; 
+const API_URL = import.meta.env.VITE_API_URL;
 
 const ImageCarousel = () => {
     const [images, setImages] = useState([]);
@@ -9,7 +10,7 @@ const ImageCarousel = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch("http://0.0.0.0:8000/products/product",{
+                const response = await fetch(`${API_URL}/products/product`,{
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },

@@ -3,6 +3,7 @@ import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
 import "./SearchBar.css";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
@@ -11,7 +12,7 @@ const SearchBar = () => {
 
   const handleClick = async () => {
     try {
-      const response = await axios.get("http://0.0.0.0:8000/products/filter", {
+      const response = await axios.get(`${API_URL}/products/filter`, {
         params: { name: searchText },
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

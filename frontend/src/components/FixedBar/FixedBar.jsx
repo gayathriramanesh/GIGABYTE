@@ -6,7 +6,10 @@ import { themeContext } from "../Contexts/contexts";
 const FixedBar = () =>
 {  const {theme, setTheme} = useContext(themeContext);
   return(
-   <div className="fixedbar-wrapper-main">
+   <div className="fixedbar-wrapper-main" style={{
+        backgroundColor: theme === 'light' ? "#fff" : "#333",
+        color: theme === "light" ? "#000" : "#fff"
+      }}>
     <div class="sliding-text-container">
         <div class="sliding-text">Get upto 20% cashback and more. Whatsapp or SMS your Name, Tel No, and Full Address to 9876543219 for free home-office delivery.
         </div>

@@ -7,6 +7,8 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import "./Card.css";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 const CardComponent = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +18,7 @@ const CardComponent = () => {
   const handleViewPDP = async(productId) => {
     try{
       const res = await axios.post(
-  "http://0.0.0.0:8000/recently_viewed/add_recently_viewed_product",
+  `${API_URL}/recently_viewed/add_recently_viewed_product`,
   {
     product_id: productId,
   },
@@ -37,7 +39,7 @@ const CardComponent = () => {
   };
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(`http://0.0.0.0:8000/products?skip=${page * limit}&limit=${limit}`, {
+      const res = await axios.get(`${API_URL}/products?skip=${page * limit}&limit=${limit}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -51,7 +53,7 @@ const CardComponent = () => {
   const handleAddToCart = async (productId) => {
     try {
       const res = await axios.post(
-  "http://0.0.0.0:8000/cart/add",
+  `${API_URL}/cart/add`,
   {
     product_id: productId,
     quantity: 1,
@@ -77,7 +79,7 @@ const CardComponent = () => {
   }, [page]);
 
   return (
-    <>
+    <div className="product-container">
       <div className="card-wrapper">
         {products.map((product) => (
           <div className="single-card" key={product.pid}>
@@ -123,7 +125,7 @@ const CardComponent = () => {
           Next
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 

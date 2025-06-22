@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Card, CardMedia, CardContent, Typography, Button } from "@mui/material";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const ProductDetails = () => {
   const { pid } = useParams();
@@ -10,7 +11,7 @@ const ProductDetails = () => {
   
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`//products/${pid}`, {
+      const res = await axios.get(`${API_URL}/products/${pid}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

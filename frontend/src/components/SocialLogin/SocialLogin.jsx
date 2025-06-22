@@ -6,10 +6,11 @@ import {
 import {
   Grid2
 } from '@mui/material';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const SocialLogin = () => {
   const handleGoogleLogin = () => {
-    window.location.href = 'http://0.0.0.0:8000/auth/google/login';
+    window.location.href = `${API_URL}/auth/google/login`;
   };
 
   return (
