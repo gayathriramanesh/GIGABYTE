@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './ProductForm.css'; 
-
+const API_URL = import.meta.env.VITE_API_URL;
 const ProductForm = () => {
   const [imageUrl, setImageUrl] = useState('');
   const [file, setFile] = useState(null);

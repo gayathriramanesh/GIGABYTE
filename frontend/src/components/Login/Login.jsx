@@ -89,10 +89,6 @@ const Login = () => {
             autoComplete="current-password"
             onChange={getData}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
           <Button
             type="submit"
             fullWidth
@@ -100,8 +96,6 @@ const Login = () => {
             sx={{ mt: 3, mb: 2 }}>
             Sign In
           </Button>
-          <Link to="/forgot-password">Forgot password?</Link>
-          <SocialLogin />
           <Box mt={2}>
             <Typography component="h5">
               Don't have an account? <Link to="/Register">Sign Up</Link>

@@ -110,11 +110,6 @@ const Register = () => {
        </Select>
       </FormControl>
 
-      <FormControlLabel
-       control={<Checkbox value="remember" color="primary" />}
-       label="Remember me"
-      />
-
       <Button
        type="submit"
        fullWidth
@@ -123,8 +118,6 @@ const Register = () => {
       >
        Register
       </Button>
-
-      <SocialLogin />
      </Box>
     </Box>
    </Container>
