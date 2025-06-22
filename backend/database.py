@@ -4,7 +4,12 @@ from sqlalchemy.orm import declarative_base
 import os
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path="secrets.env")
+env_mode = os.getenv("ENV_MODE", "development")
+if env_mode == "production":
+    load_dotenv(".env.production")
+else:
+    load_dotenv(".env")  
+
 
 URL_DATABASE = os.getenv("DATABASE_URL")
 

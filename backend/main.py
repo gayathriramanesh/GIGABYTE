@@ -21,12 +21,21 @@ import os
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from dotenv import load_dotenv
-load_dotenv(dotenv_path="secrets.env")
+
+env_mode = os.getenv("ENV_MODE", "development")
+if env_mode == "production":
+    load_dotenv(".env.production")
+else:
+    load_dotenv(".env")  
+
 
 
 app = FastAPI()
-
-app.mount("/assets", StaticFiles(directory="static/dist/assets", html=True), name="assets")
+if env_mode == "production":
+  app.mount("/assets", StaticFiles(directory="static/dist/assets", html=True), name="assets")
+  @app.get("/")
+  def read_root():
+    return FileResponse("static/dist/index.html")
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
@@ -96,9 +105,7 @@ async def register(user: UserCreate, db: Session = Depends(get_db)):
             print(f"Database error: {e}")  
             raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
         
-@app.get("/")
-def read_root():
-    return FileResponse("static/dist/index.html")
+
         
 @app.post("/login",response_model=TokenResponse)
 async def login(form_data:Annotated[OAuth2PasswordRequestForm,Depends()],db: Session = Depends(get_db)):

@@ -14,14 +14,19 @@ import os
 from starlette.responses import RedirectResponse
 from authlib.integrations.starlette_client import OAuth
 from fastapi import APIRouter, Request
-
 from dotenv import load_dotenv
-load_dotenv(dotenv_path="secrets.env")
+
+env_mode = os.getenv("ENV_MODE", "development")
+if env_mode == "production":
+    load_dotenv(".env.production")
+else:
+    load_dotenv(".env")  
 
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM =  os.getenv("ALGORITHM")
-
+APP_URL = os.getenv("APP_URL")
+print(APP_URL)
 config_data = {
     "GOOGLE_CLIENT_ID": os.getenv("GOOGLE_CLIENT_ID"),
     "GOOGLE_CLIENT_SECRET": os.getenv("GOOGLE_CLIENT_SECRET"),
@@ -139,5 +144,5 @@ async def google_callback(request: Request, db: Session = Depends(get_db)):
         expires_delta=timedelta(days=1)
     )
     return RedirectResponse(
-        url=f"http://0.0.0.0:8000/home?token={jwt_token}&role={user.role}"
+        url=f"home?token={jwt_token}&role={user.role}"
     )
