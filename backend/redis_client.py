@@ -1,6 +1,4 @@
 import redis
-r = redis.Redis(
-    host='localhost',
-    port=6379,
-    db=0,
-    decode_responses=True)
+import os
+
+r = redis.Redis.from_url(os.environ["REDIS_URL"])
